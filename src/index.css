@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+h2 {
+  animation: type 2.5s steps(22) forwards;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar in Firefox and other browsers */
+html {
+  scrollbar-width: none;
+}
+
+/* Keep scrolling enabled */
+body {
+  overflow-y: auto;
+}
