@@ -6,6 +6,7 @@ import decor from "../assets/decor.jpg";
 import tv from "../assets/tv.jpg";
 import dining from "../assets/dining.jpg";
 import SocialDeck from "../components/SocialDeck";
+import Image from "../assets/image1.png";
 
 const categories = [
   "All Collections",
@@ -218,7 +219,7 @@ export default function Collections() {
         <div className="relative min-h-[290px] overflow-hidden bg-[#242220] sm:min-h-[400px]">
           {/* Replace with your own wide editorial furniture image. */}
           <img
-            src="/images/hero-interior.jpg"
+            src={Image}
             alt="Curated contemporary furniture in a refined interior"
             className="absolute inset-0 h-full w-full object-cover"
           />
