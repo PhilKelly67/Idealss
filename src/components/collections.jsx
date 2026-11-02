@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import sofa from "../assets/sofa.jpg";
 import bed from "../assets/beds.jpg";
 import coffee from "../assets/coffee.jpg";
@@ -98,7 +99,7 @@ function ArrowIcon({ diagonal = false }) {
 
 function CollectionCard({ item }) {
   return (
-    <article className="group">
+    <article className="group min-w-0">
       <a
         href={`/collections/${item.id}`}
         className="block"
@@ -113,17 +114,17 @@ function CollectionCard({ item }) {
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.045]"
           />
 
-          <span className="absolute left-4 top-4 bg-black/55 px-3 py-2 text-[10px] tracking-[0.2em] text-white backdrop-blur-sm">
+          <span className="absolute left-3 top-3 bg-black/55 px-3 py-2 text-[9px] tracking-[0.2em] text-white backdrop-blur-sm sm:left-4 sm:top-4 sm:text-[10px]">
             EDIT {item.number}
           </span>
 
-          <span className="absolute bottom-4 right-4 flex h-11 w-11 translate-y-2 items-center justify-center rounded-full bg-[#F3EFE8] text-black opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <span className="absolute bottom-3 right-3 flex h-10 w-10 translate-y-2 items-center justify-center rounded-full bg-[#F3EFE8] text-black opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 sm:bottom-4 sm:right-4 sm:h-11 sm:w-11">
             <ArrowIcon diagonal />
           </span>
         </div>
 
-        <div className="flex items-start justify-between gap-4 border-b border-white/15 py-5">
-          <div>
+        <div className="flex items-start justify-between gap-3 border-b border-white/15 py-4 sm:gap-4 sm:py-5">
+          <div className="min-w-0">
             <p className="mb-2 text-[10px] uppercase tracking-[0.2em] text-[#B7B0A7]">
               {item.category}
             </p>
@@ -133,7 +134,7 @@ function CollectionCard({ item }) {
             <p className="mt-2 text-sm text-[#AAA49D]">{item.subtitle}</p>
           </div>
 
-          <span className="mt-1 whitespace-nowrap text-[10px] tracking-[0.12em] text-[#AAA49D]">
+          <span className="mt-1 shrink-0 whitespace-nowrap text-[9px] tracking-[0.08em] text-[#AAA49D] sm:text-[10px] sm:tracking-[0.12em]">
             {item.count}
           </span>
         </div>
@@ -144,7 +145,6 @@ function CollectionCard({ item }) {
 
 export default function Collections() {
   const [activeCategory, setActiveCategory] = useState("All Collections");
-
   const [search, setSearch] = useState("");
 
   const filteredCollections = collections.filter((item) => {
@@ -161,16 +161,16 @@ export default function Collections() {
   return (
     <main className="min-h-screen bg-[#111110] text-[#F3EFE8]">
       {/* Announcement bar */}
-      <div className="bg-[#A91D29] px-4 py-2.5 text-center text-[9px] tracking-[0.22em] sm:text-[10px]">
+      <div className="bg-[#A91D29] px-3 py-2.5 text-center text-[8px] tracking-[0.14em] sm:px-4 sm:text-[10px] sm:tracking-[0.22em]">
         THOUGHTFULLY DESIGNED. MADE TO LAST.
       </div>
 
       {/* Navigation */}
       <header className="border-b border-white/10">
-        <nav className="mx-auto flex max-w-[1440px] items-center justify-between gap-5 px-5 py-6 sm:px-10 lg:px-16">
+        <nav className="mx-auto flex w-full max-w-[1440px] flex-wrap items-center justify-between gap-x-4 gap-y-3 px-4 py-4 sm:flex-nowrap sm:gap-5 sm:px-10 sm:py-6 lg:px-16">
           <a
             href="/"
-            className="text-lg font-semibold tracking-[0.18em] sm:text-xl"
+            className="shrink-0 text-base font-semibold tracking-[0.14em] sm:text-xl sm:tracking-[0.18em]"
           >
             IDEAL<span className="text-[#C72A36]">SOFAS</span>
           </a>
@@ -180,21 +180,22 @@ export default function Collections() {
               Home
             </a>
           </div>
+
           <SocialDeck />
         </nav>
       </header>
 
       {/* Hero */}
-      <section className="mx-auto grid max-w-[1440px] gap-10 px-5 pb-16 pt-16 sm:px-10 sm:pb-24 sm:pt-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:px-16 lg:pt-28">
-        <div>
-          <div className="mb-8 flex items-center gap-3">
-            <span className="h-px w-9 bg-[#C72A36]" />
-            <p className="text-[10px] uppercase tracking-[0.25em] text-[#C5C0B9]">
+      <section className="mx-auto grid w-full max-w-[1440px] gap-8 px-4 pb-12 pt-12 sm:gap-10 sm:px-10 sm:pb-24 sm:pt-20 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:px-16 lg:pt-28">
+        <div className="min-w-0">
+          <div className="mb-6 flex items-center gap-3 sm:mb-8">
+            <span className="h-px w-9 shrink-0 bg-[#C72A36]" />
+            <p className="text-[9px] uppercase tracking-[0.2em] text-[#C5C0B9] sm:text-[10px] sm:tracking-[0.25em]">
               The art of considered living
             </p>
           </div>
 
-          <h1 className="max-w-4xl text-5xl font-light leading-[1.04] tracking-[-0.055em] sm:text-7xl lg:text-[88px]">
+          <h1 className="max-w-4xl text-[clamp(2.65rem,8vw,5.5rem)] font-light leading-[1.04] tracking-[-0.055em]">
             Spaces that
             <br />
             speak <span className="italic text-[#C72A36]">for</span>
@@ -202,7 +203,7 @@ export default function Collections() {
             themselves.
           </h1>
 
-          <p className="mt-8 max-w-md text-sm leading-7 text-[#AAA49D] sm:text-base">
+          <p className="mt-6 max-w-md text-sm leading-7 text-[#AAA49D] sm:mt-8 sm:text-base">
             Discover thoughtfully curated furniture collections where timeless
             craftsmanship meets modern living. Designed to make every room feel
             like it belongs to you.
@@ -210,13 +211,13 @@ export default function Collections() {
 
           <a
             href="#collection-grid"
-            className="mt-9 inline-flex items-center gap-4 bg-[#B92330] px-6 py-4 text-[10px] uppercase tracking-[0.16em] transition hover:bg-[#D02D3B]"
+            className="mt-7 inline-flex max-w-full items-center justify-center gap-3 bg-[#B92330] px-5 py-4 text-center text-[9px] uppercase tracking-[0.14em] transition hover:bg-[#D02D3B] sm:mt-9 sm:gap-4 sm:px-6 sm:text-[10px] sm:tracking-[0.16em]"
           >
             Explore the collections <ArrowIcon />
           </a>
         </div>
 
-        <div className="relative min-h-[290px] overflow-hidden bg-[#242220] sm:min-h-[400px]">
+        <div className="relative min-h-[260px] w-full overflow-hidden bg-[#242220] sm:min-h-[400px]">
           {/* Replace with your own wide editorial furniture image. */}
           <img
             src={Image}
@@ -226,16 +227,16 @@ export default function Collections() {
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10" />
 
-          <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4 sm:bottom-8 sm:left-8 sm:right-8">
-            <div>
+          <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3 sm:bottom-8 sm:left-8 sm:right-8 sm:gap-4">
+            <div className="min-w-0">
               <p className="mb-2 text-[9px] uppercase tracking-[0.22em] text-white/70">
                 A new perspective
               </p>
-              <p className="max-w-xs text-2xl font-light leading-tight sm:text-3xl">
+              <p className="max-w-xs text-xl font-light leading-tight sm:text-3xl">
                 Good design changes how you feel.
               </p>
             </div>
-            <span className="text-xs tracking-[0.15em] text-white/70">
+            <span className="shrink-0 text-[10px] tracking-[0.15em] text-white/70 sm:text-xs">
               01 / 06
             </span>
           </div>
@@ -244,13 +245,13 @@ export default function Collections() {
 
       {/* Collections */}
       <section id="collection-grid" className="border-t border-white/10">
-        <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-10 sm:py-24 lg:px-16">
+        <div className="mx-auto w-full max-w-[1440px] px-4 py-12 sm:px-10 sm:py-24 lg:px-16">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <div>
+            <div className="min-w-0">
               <p className="mb-4 text-[10px] uppercase tracking-[0.23em] text-[#C72A36]">
                 Find your aesthetic
               </p>
-              <h2 className="text-4xl font-light tracking-[-0.04em] sm:text-6xl">
+              <h2 className="text-[clamp(2.25rem,6vw,3.75rem)] font-light tracking-[-0.04em]">
                 The collections<span className="text-[#C72A36]">.</span>
               </h2>
               <p className="mt-4 max-w-lg text-sm leading-7 text-[#AAA49D]">
@@ -269,9 +270,9 @@ export default function Collections() {
                   value={search}
                   onChange={(event) => setSearch(event.target.value)}
                   placeholder="Search collections..."
-                  className="w-full bg-transparent text-sm outline-none placeholder:text-[#77736D]"
+                  className="min-w-0 w-full bg-transparent text-sm outline-none placeholder:text-[#77736D]"
                 />
-                <span className="text-[#AAA49D]">
+                <span className="shrink-0 text-[#AAA49D]">
                   <svg
                     width="19"
                     height="19"
@@ -290,7 +291,7 @@ export default function Collections() {
           </div>
 
           {/* Filter controls */}
-          <div className="mt-10 flex gap-2 overflow-x-auto pb-3">
+          <div className="mt-8 flex max-w-full gap-2 overflow-x-auto overscroll-x-contain pb-3 sm:mt-10">
             {categories.map((category) => (
               <button
                 key={category}
@@ -308,7 +309,7 @@ export default function Collections() {
             ))}
           </div>
 
-          <div className="mb-6 mt-8 flex items-center justify-between">
+          <div className="mb-6 mt-8 flex flex-wrap items-center justify-between gap-3">
             <p className="text-[10px] uppercase tracking-[0.15em] text-[#AAA49D]">
               Showing {filteredCollections.length.toString().padStart(2, "0")}{" "}
               collections
@@ -318,7 +319,7 @@ export default function Collections() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
+          <div className="grid grid-cols-1 gap-x-5 gap-y-10 min-[520px]:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
             {filteredCollections.map((item) => (
               <CollectionCard key={item.id} item={item} />
             ))}
@@ -346,7 +347,7 @@ export default function Collections() {
 
       {/* Footer */}
       <footer className="border-t border-white/10">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-5 px-5 py-7 sm:px-10 md:flex-row md:items-center md:justify-between lg:px-16">
+        <div className="mx-auto flex max-w-[1440px] flex-col gap-4 px-4 py-7 sm:px-10 md:flex-row md:flex-wrap md:items-center md:justify-between lg:px-16">
           <a href="/" className="text-sm font-semibold tracking-[0.18em]">
             IDEAL<span className="text-[#C72A36]">SOFAS</span>
           </a>
